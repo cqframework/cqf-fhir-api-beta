@@ -3,8 +3,8 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.opencds.cqf.fhir</groupId>
-  <artifactId>cqf-fhir</artifactId>
+  <groupId>fhir</groupId>
+  <artifactId>fhir</artifactId>
   <version>1.0.0</version>
   <packaging>pom</packaging>
 
@@ -13,9 +13,9 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   </properties>
   <modules>
-    <module>cqf-fhir-api</module>
-    <module>cqf-fhir-core</module>
-    <module>cqf-fhir-dev-server</module>
+    <module>api</module>
+    <module>core</module>
+    <module>dev-server</module>
   </modules>
 
   <repositories>
@@ -85,12 +85,6 @@
       <artifactId>hapi-fhir-base</artifactId>
     </dependency>
 
-    <!-- This is used for MultiMap. We might provide our own implementation to save us some bits-->
-    <dependency>
-      <groupId>com.google.guava</groupId>
-      <artifactId>guava</artifactId>
-    </dependency>
-
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
@@ -133,6 +127,7 @@
           <artifactId>maven-surefire-plugin</artifactId>
           <version>3.0.0</version>
         </plugin>
+        <!--This is to ensure we don't use any unsupported Android APIs-->
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>animal-sniffer-maven-plugin</artifactId>
